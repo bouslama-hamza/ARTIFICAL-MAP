@@ -1,0 +1,38 @@
+{% extends 'base_client.html' %}
+{% load static %}
+{% block content %}
+<br><br><br>
+<section id="values" class="values">
+    <div class="container" data-aos="fade-up">
+      <header class="section-header">
+        <p>Gestion de Guide De PDF</p>
+      </header>
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="box">
+            <img src="{% static 'assets/img/values-1.png' %}" class="img-fluid" alt="">
+            <h3>GUIDE DE L'OUTIL 1</h3>
+            <p>POTENTIEL DU SITE PV</p>
+            <a href="{% static 'appfunction/guides/Guide1.pdf' %}" class="btn btn-primary" download>Telecharger Le PDF</a>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+          <div class="box">
+            <img src="{% static 'assets/img/values-2.png' %}" class="img-fluid" alt="">
+            <h3>GUIDE DE L'OUTIL 2 </h3>
+            <p>MONITORING ET INSPECTION - VISUALISATION GRAPHIQUE</p>
+            <a href="{% static 'appfunction/guides/Guide2.pdf' %}" class="btn btn-primary" download>Telecharger Le PDF</a>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+          <div class="box">
+            <img src="{% static 'assets/img/values-3.png' %}" class="img-fluid" alt="">
+            <h3>GUIDE DE L'OUTIL 3</h3>
+            <p>MONITORING ET INSPECTION - GEOLOCALISATION DES DEFAUTS</p>
+            <a href="{% static 'appfunction/guides/Guide3.pdf' %}" class="btn btn-primary" download>Telecharger Le PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

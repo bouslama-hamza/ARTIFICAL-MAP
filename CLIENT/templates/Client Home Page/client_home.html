@@ -1,0 +1,61 @@
+{% extends 'base_client.html' %}
+{% load static %}
+{% block content %}
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">PLATEFORME INTELLIGENTE POUR ASSURER LE MONITORING DES INSTALLATIONS PHOTOVOLTAIQUES</h1>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>DECOUVRIR LES FONCTIONNALITES</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+      <header class="section-header">
+        <p>Services</p>
+      </header>
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-box blue">
+            <i class="ri-discuss-line icon"></i>
+            <h3>ETUDE DU POTENTIEL DE LA ZONE D'UNE NOUVELLE INSTALLATION</h3>
+            <p>Visualisation des cartes caractérisant le potentiel solaire au Maroc (DIF, DNI, GHI, GTI) et d’autres grandeurs annexes (OPTA, PVOUT, élévation du terrain, vitesse moyenne du vent, température de l’air) en relation avec l'efficacité des projets photovoltaïques ainsi que la proximité par rapport aux villes et aux routes afin d'identifier les zones optimales dans lesquelles des nouvelles installations photovoltaïques peuvent être construites</p>
+            <a href="#" class="read-more"><span>Consulter</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-box orange">
+            <i class="ri-discuss-line icon"></i>
+            <h3>MONITORING TEMPOREL DES GRANDEURS ENREGISTREES PAR L'INSTALLATION</h3>
+            <p>Visualisation avancée des grandeurs (électriques / météorologiques) pour évaluer le rendement total de l’installation photovoltaïque, détecter les anomalies dans la production et comparer les grandeurs reliées entre eux à travers des graphes dynamiques et interactifs</p>
+            <a href="#" class="read-more"><span>Consulter</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-box green">
+            <i class="ri-discuss-line icon"></i>
+            <h3>MONITORING DES DEFAUTS AFFECTANT LES PANNEAUX PV PAR DEEP LEARNING</h3>
+            <p>Détection et classification automatique des différents types de défauts thermiques ayant affecté les modules de l’installation photovoltaïque en exploitant un modèle deep learning avec une précision de 94,52% pour les géolocaliser sur l'orthomosaïque du projet générée lors de la mission de prise de vue par drone tout en citant leurs caractéristiques</p>
+            <a href="#" class="read-more"><span>Consulter</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endblock content %}
