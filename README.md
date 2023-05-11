@@ -108,7 +108,7 @@ Contributions are what make the open source community such an amazing place to l
 
 Hamza Bouslama - [Hamza:Gmail](ham.bousa98@gmail.com)
 
-Project Link: [https://github.com/bouslama-hamza/BRAIN_TUMOR](https://github.com/bouslama-hamza/BRAIN_TUMOR)
+Project Link: [https://github.com/bouslama-hamza/ARTIFICAL-MAP](https://github.com/bouslama-hamza/ARTIFICAL-MAP.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
