@@ -1,0 +1,30 @@
+{% extends 'AppPages/base_app.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Client / </span>Geolocalisation</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <form method = "POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <img style="margin-left: 12cm;height:400px" src="./static/images/volet3.png">
+                    <div class="item">
+                        <p>Veuillez insérer le fichier zip ici conformément au guide concernant cet outil</p>
+                        <input type="file" name="dossier">
+                    </div>
+                    <div class="btn-block">
+                      <button style="color:white" name="dossier" type="submit">Lancer le processus</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

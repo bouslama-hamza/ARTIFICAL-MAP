@@ -1,0 +1,110 @@
+{% extends 'AppPages/base_app.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Client / </span>Graphique</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <form method="POST">
+                    {% csrf_token %}
+                  <fieldset>
+                    <legend> Intervalle du temps : </legend>
+                    <p class="top-info">Veuillez spécifier les limites de la période pour laquelle sera calculé l'aggrégat 
+                    choisi ci-dessous :</p>
+                    <div class="columns">
+                      <div class="item" >
+                        <label for="checkindate"> Du : <span>*</span></label>
+                        <input type="date" class="form-control" id="checkindate" name="start" value="{{min_date}}" >
+                        <i class="fas fa-calendar-alt"></i>
+                      </div>
+                      <div class="item" >
+                        <label for="checkoutdate"> Au : <span>*</span></label>
+                        <input type="date" class="form-control" id="checkoutdate" name="end" value="{{max_date}}" >
+                        <i class="fas fa-calendar-alt"></i>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <br>
+                  <fieldset>
+                    <legend>Pas temporel (fréquence d’agrégation) :</legend>
+                    <p class="top-info">Veuillez choisir la fréquence souhaitée :</p>
+                    <div class="columns">
+                      <div class="item">
+                        <label for="fname">Saisissez le nombre <span>*</span></label>
+                        <input type="number" class="form-control" id="fname" name="fname"> 
+                     </div>
+                      <div class="item">
+                        <label for="fname">De :<span>*</span><br></label>
+                        <select class="form-control" id="frequence"  name="frequence" >
+                          <option value='Jours'>jour(s)</option>
+                          <option value="Semaines">semaine(s)</option>
+                          <option value="Mois">mois</option>
+                          <option value="Années">année(s)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <br>
+                  <fieldset>
+                    <legend>Agrégat statistique à calculer :</legend>
+                    <p class="top-info">Veuillez choisir le type d’agrégat à calculer ainsi que le type de graphe parmi les graphes disponibles :</p>
+                    <div class="columns">
+                      <div class="item" > 
+                          <select class="form-control" id="menu1" onchange="setmenu2()" name="d">
+                              <option>L'agrégat :</option>
+                              <option value="Moyenne">Moyenne (Par défaut)</option>
+                              <option>Minimum</option>
+                              <option>Maximum</option>
+                              <option>Total</option>
+                          </select>
+                     </div>
+                     <br>
+                      <div class="item">
+                          <select class="form-control" id="menu2" name="e">
+                             <option>Le graphe :</option>
+                          </select>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <br>
+                  <fieldset>
+                    <legend>Grandeur(s) à visualiser :</legend>
+                    <div class="question">
+                      <label for="6">Veuillez cocher la ou les grandeur(s) souhaitée(s) ou bien cochez le dernier choix uniquement pour inclure toutes les grandeurs à la fois  :<span style="color:red;margin:0px">*</span></label>
+                      <br>
+                      <div class="question-answer checkbox-item">
+                        <br>
+                        {% for element in liste %}
+                              <div>
+                                <input class="form-check-input" id ="{{ element }}" type="checkbox"   name="c" value="{{ element }}">
+                                <label for="{{ element }}" class="check" ><span>{{ element }}</span></label><br>
+                              </div>
+                              <br>
+                        {% endfor %}
+                        <div>
+                          <input class="form-check-input" id="all" type="checkbox"   name="c" value="All" >
+                          <label for ="all" class="check">
+                            <span>Toutes les grandeurs (Par défaut)</span> 
+                          </label>
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="justify-content-between">
+                      <input class="btn btn-primary" type="submit" value="Générer le graphe">
+                      <input class="btn btn-primary" type="reset" value="Réinitialiser">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

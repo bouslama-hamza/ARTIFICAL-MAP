@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-)**n@-5vzi_glf#jt+x1+&p#$o*4o(3144$(5j0#3v0^c87m*(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,6 +118,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_URL = 'client-login'
+
+LOGIN_REDIRECT_URL = 'client_map'
 
  
 # Static files (CSS, JavaScript, Images)
