@@ -8,7 +8,7 @@ urlpatterns = [
     path('login/' , LoginView.as_view(
                         authentication_form = UserLoginForm , 
                         template_name='HomePages/Client Login/client_login.html',
-                        ) , 
+                        ), 
                     name='client-login'
                     ),
     path('' , views.client_home , name='client_home'),

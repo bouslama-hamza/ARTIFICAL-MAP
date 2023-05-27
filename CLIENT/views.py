@@ -13,6 +13,8 @@ import tensorflow as tf
 from keras.utils import img_to_array, load_img, save_img
 from .forms import UserRegisterForm
 import ast
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def client_home(request):
@@ -29,23 +31,26 @@ def client_signup(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
+            form.save()
             messages.success(request, ("Compte a etait cree avec success"))
             return redirect('client-login')
         messages.error(request, ("Veuillez vérifier les informations saisies"))
-        return redirect('client-signup')
+        return redirect('client_signup')
     return render(request, 
             'HomePages/Client Login/client_signup.html',
             {'form': form})
 
+@login_required
 def client_map(request):
     return render(request, 'AppPages/Client Dashboard/client_map.html')
 
+@login_required
 def client_graph(request): 
     try:
         df2 = pd.read_csv('AI_MAP/static/data/IAV_INSTALLATION_PV.csv' , sep = ';', encoding = 'utf-8', header = 0)
         df2.columns = pd.MultiIndex.from_arrays([df2.columns, df2.iloc[0].values])
         df2 = df2.iloc[1:]
-        df2.index = pd.to_datetime(df2.iloc[:,0],dayfirst=True,infer_datetime_format=True,format='%d-%m-%Y')
+        df2.index = pd.to_datetime(df2.iloc[:,0],dayfirst=True,infer_datetime_format=True,format='mixed')
         df2.drop(columns = df2.columns[0], axis = 1, inplace= True)
         df2 = df2.sort_index(axis=1)
         df2.index.name = None
@@ -104,6 +109,7 @@ def client_graph(request):
                   {'min_date':min_date,'max_date':max_date,'liste':liste}
                 )
 
+@login_required
 def client_geo(request):
     if request.method == 'POST':
 
@@ -258,5 +264,5 @@ def client_geo(request):
             ).add_to(classe5)
 
         folium.LayerControl().add_to(carte)
-        return carte._repr_html_()
+        return HttpResponse(carte._repr_html_())
     return render(request , 'AppPages/Client Dashboard/client_geo.html')
